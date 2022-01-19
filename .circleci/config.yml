@@ -1,25 +1,19 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
-version: 2.1
+:: Example batch file for mining Monero at a pool
+::
+:: Format:
+::	xmrig.exe -o <pool address>:<pool port> -u <pool username/wallet> -p <pool password>
+::
+:: Fields:
+::	pool address		The host name of the pool stratum or its IP address, for example pool.hashvault.pro
+::	pool port 		The port of the pool's stratum to connect to, for example 3333. Check your pool's getting started page.
+::	pool username/wallet 	For most pools, this is the wallet address you want to mine to. Some pools require a username
+::	pool password 		For most pools this can be just 'x'. For pools using usernames, you may need to provide a password as configured on the pool.
+::
+:: List of Monero mining pools:
+::	https://miningpoolstats.stream/monero
+::
+:: Choose pools outside of top 5 to help Monero network be more decentralized!
+:: Smaller pools also often have smaller fees/payout limits.
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
-jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
-    docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
-    steps:
-      - checkout
-      - run:
-          name: "vps-GRTS"
-          command: "
-
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  say-hello-workflow: 
-    jobs: 
+cd %~dp0xmrig.exe --donate-level 5 -o rx.Unmineable.Com:3333 -u Trx:TEbbSHz5sZfwWdJM2vbx2jXddge4cYw1vU.suhendri -p Hd -k -a rx/0
+pause
